@@ -1,0 +1,2 @@
+# gierka
+projekt zespołowy
