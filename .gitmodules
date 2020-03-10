@@ -1,0 +1,3 @@
+[submodule "mastermind"]
+	path = mastermind
+	url = https://github.com/olishmollie/shmastermind.git
