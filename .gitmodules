@@ -1,6 +1,3 @@
 [submodule "mastermind"]
 	path = mastermind
 	url = https://github.com/olishmollie/shmastermind.git
-[submodule "checkers"]
-	path = checkers
-	url = https://github.com/zubairv85/HTML5-Checkers.git
