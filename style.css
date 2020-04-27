@@ -1,0 +1,149 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    line-height:1;
+}
+
+ul,li {
+    display: block;
+    list-style:none;
+}
+
+body {
+    font-size: 100%;
+    line-height:1;
+    font-family: Arial;
+    background-color:hsl(181,85%,90%);
+
+}
+
+main{
+    min-width: 700px;
+    width: 70%;
+    background-color: rgb(34, 226, 230);
+    margin:auto;
+    border-radius:0 0 15px 15px ;
+    border-right: 5px solid hsl(181,85%,30%);
+    border-left: 5px solid hsl(181,85%,30%);
+    border-bottom: 5px solid hsl(181,85%,30%);
+    box-shadow: -10px 10px 30px 5px rgb(27, 176, 179);
+    padding:0 40px 40px 30px;
+}
+
+header h1{
+    font-size: 40px;
+    font-weight:normal;
+    text-align: center;
+    color:rgb(4, 25, 26);
+    padding: 20px 0;
+}
+
+#board {
+    width:700px;
+    display:flex;
+    margin:auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+#colors_choice{
+    width:100px;
+    
+
+}
+#guess_board{
+    width: 500px;
+}
+#control_buttons{
+    width:100px;
+}
+
+
+#colors_list, #play_board{
+    background-color:rgb(27, 176, 179);
+    border: 2px solid hsl(181,85%,30%);
+    border-radius:10px ;
+    border-spacing: 10px;
+    margin: auto;
+    padding:0 10px;
+}
+.color_button{
+    height:40px;
+    width:40px;
+    border-radius: 35%;
+    border: 2px solid hsl(181,85%,10%);
+    text-align:center;
+    vertical-align: middle;
+    font-size:20px;
+    color: rgb(4, 25, 26);
+}
+.not_filled{
+    
+    background-color: hsl(181,85%,90%);
+}
+
+.text_box{
+    
+    color:rgb(4, 25, 26);
+    font-size: 20px;
+    text-align:center;
+}
+
+.answer_box{
+    height:40px;
+    text-align:left;
+    vertical-align: middle;
+    border-radius: 12px;
+    border: 2px solid hsl(181,85%,10%);
+    background-color: hsl(181,85%,90%);
+    
+}
+.answer_table{
+    border-spacing: 10px;
+    
+}
+
+.answer_cell{
+    width:15px;
+    height:15px;
+    border-radius: 45%;
+    
+}
+
+.answer_cell.correct_place{
+    background-color: rgb(4, 25, 26);
+    border:1px solid rgb(19, 126, 128);
+    
+    
+}
+
+.answer_cell.correct_color{
+    
+    background-color:  rgb(34, 226, 230);
+    border:1px solid rgb(4, 25, 26);
+}
+
+.button{
+    outline: none;
+    border-radius: 12px;
+    border: 2px solid hsl(181,85%,10%);
+    text-align:center;
+    margin-bottom:20px;
+    padding: 5px 10px;
+    width: 100px;
+
+    background-color: hsl(181,85%,90%);
+
+    color: hsl(181,85%,30%);
+    font: inherit;
+    font-size:22px;
+
+    line-height: 1;
+}
+.button:hover{
+    color:hsl(181,85%,90%);;
+    background-color: hsl(181,85%,30%);
+    
+}

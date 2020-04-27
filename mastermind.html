@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Mastermind Game</title>
+        
+    </head>
+
+    <body>
+        <main>
+            <header>
+            <h1>Hello Mastermind !</h1>
+            </header>
+            <div id="board">
+                
+                <div id="colors_choice">
+                    <table id="colors_list">
+                    <tbody>
+                    <tr><td class="color_button" style="background-color: rgb(255,0,0);"></td></tr>
+                    <tr><td class="color_button" style="background-color: rgb(0,255,0);"></td></tr>
+                    <tr><td class="color_button" style="background-color: rgb(0,0,255);"></td></tr>
+                    <tr><td class="color_button" style="background-color: rgb(0,0,0);"></td></tr>
+                    <tr><td class="color_button" style="background-color: rgb(255,255,0);"></td></tr>
+                    <tr><td class="color_button" style="background-color: rgb(255,0,255);"></td></tr>
+                    <tr><td class="color_button" style="background-color: rgb(0,255,255);"></td></tr>
+                    </tbody>
+                    </table>
+                    
+                </div>
+                <div id="guess_board">
+                   <table id="play_board">
+                    <thead>
+                        <tr>
+                            <th class="text_box"></th>
+                            <th class="color_button not_filled">?</th>
+                            <th class="color_button not_filled">?</th>
+                            <th class="color_button not_filled">?</th>
+                            <th class="color_button not_filled">?</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="text_box">7.</td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td class="text_box">6.</td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td class="text_box">5.</td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                       <tr>
+                        <td class="text_box">4.</td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="color_button not_filled"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            <td class="answer_cell "></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td class="text_box">3.</td>
+                        <td class="color_button " style="background-color: rgb(255,0,0);"></td>
+                        <td class="color_button " style="background-color: rgb(0,0,0);"></td>
+                        <td class="color_button " style="background-color: rgb(0,255,0);"></td>
+                        <td class="color_button " style="background-color: rgb(255,255,0);"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell correct_place"></td>
+                            <td class="answer_cell correct_place"></td>
+                            <td class="answer_cell correct_color"></td>
+                            <td class="answer_cell incorrect"></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td class="text_box">2.</td>
+                        <td class="color_button " style="background-color: rgb(255,0,0);"></td>
+                        <td class="color_button " style="background-color: rgb(0,0,0);"></td>
+                        <td class="color_button " style="background-color: rgb(0,255,0);"></td>
+                        <td class="color_button " style="background-color: rgb(255,255,0);"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell correct_place"></td>
+                            <td class="answer_cell correct_place"></td>
+                            <td class="answer_cell correct_color"></td>
+                            <td class="answer_cell incorrect"></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td class="text_box">1.</td>
+                        <td class="color_button " style="background-color: rgb(255,0,0);"></td>
+                        <td class="color_button " style="background-color: rgb(0,0,0);"></td>
+                        <td class="color_button " style="background-color: rgb(0,255,0);"></td>
+                        <td class="color_button " style="background-color: rgb(255,255,0);"></td>
+                        <td class="answer_box">
+                           <table class="answer_table">
+                            <tbody>
+                            <tr>
+                            <td class="answer_cell correct_place"></td>
+                            <td class="answer_cell correct_place"></td>
+                            <td class="answer_cell correct_color"></td>
+                            <td class="answer_cell incorrect"></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                           </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div id="control_buttons">
+                    <button class="button">Reset</button>
+                    <button class="button">Check</button>
+                </div>
+            
+            
+            
+            
+            </div>
+            
+            
+            
+        
+        </main>
+      
+    </body>
+</html>
