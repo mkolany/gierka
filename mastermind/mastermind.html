@@ -4,10 +4,10 @@
         <meta charset="UTF-8"/>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Mastermind Game</title>
-        
+        <script src="script.js"></script>
     </head>
 
-    <body>
+    <body onLoad="start();">
         <main>
             <header>
             <h1>Hello Mastermind !</h1>
@@ -17,13 +17,13 @@
                 <div id="colors_choice">
                     <table id="colors_list">
                     <tbody>
-                    <tr><td class="color_button" style="background-color: rgb(255,0,0);"></td></tr>
-                    <tr><td class="color_button" style="background-color: rgb(0,255,0);"></td></tr>
-                    <tr><td class="color_button" style="background-color: rgb(0,0,255);"></td></tr>
-                    <tr><td class="color_button" style="background-color: rgb(0,0,0);"></td></tr>
-                    <tr><td class="color_button" style="background-color: rgb(255,255,0);"></td></tr>
-                    <tr><td class="color_button" style="background-color: rgb(255,0,255);"></td></tr>
-                    <tr><td class="color_button" style="background-color: rgb(0,255,255);"></td></tr>
+                    <tr><td onClick="choose_color(1);" class="color_button" style="background-color: rgb(255,0,0);"></td></tr>
+                    <tr><td onClick="choose_color(2);" class="color_button" style="background-color: rgb(0,255,0);"></td></tr>
+                    <tr><td onClick="choose_color(3);" class="color_button" style="background-color: rgb(0,0,255);"></td></tr>
+                    <tr><td onClick="choose_color(4);" class="color_button" style="background-color: rgb(0,0,0);"></td></tr>
+                    <tr><td onClick="choose_color(5);" class="color_button" style="background-color: rgb(255,255,0);"></td></tr>
+                    <tr><td onClick="choose_color(6);" class="color_button" style="background-color: rgb(255,0,255);"></td></tr>
+                    <tr><td onClick="choose_color(7);" class="color_button" style="background-color: rgb(0,255,255);"></td></tr>
                     </tbody>
                     </table>
                     
@@ -41,12 +41,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr data-row="7" class="guess_row">
                         <td class="text_box">7.</td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
+                        <td onClick="place_color(this,7);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,7);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,7);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,7);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -60,12 +60,12 @@
                             </table>
                            </td>
                         </tr>
-                        <tr>
+                        <tr data-row="6" class="guess_row">
                         <td class="text_box">6.</td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
+                        <td onClick="place_color(this,6);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,6);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,6);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,6);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -79,12 +79,12 @@
                             </table>
                            </td>
                         </tr>
-                        <tr>
+                        <tr data-row="5" class="guess_row">
                         <td class="text_box">5.</td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
+                        <td onClick="place_color(this,5);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,5);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,5);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,5);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -98,12 +98,12 @@
                             </table>
                            </td>
                         </tr>
-                       <tr>
+                       <tr data-row="4" class="guess_row">
                         <td class="text_box">4.</td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
-                        <td class="color_button not_filled"></td>
+                        <td onClick="place_color(this,4);"  class="color_button not_filled"></td>
+                        <td onClick="place_color(this,4);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,4);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,4);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -117,12 +117,12 @@
                             </table>
                            </td>
                         </tr>
-                        <tr>
+                        <tr data-row="3" class="guess_row">
                         <td class="text_box">3.</td>
-                        <td class="color_button " style="background-color: rgb(255,0,0);"></td>
-                        <td class="color_button " style="background-color: rgb(0,0,0);"></td>
-                        <td class="color_button " style="background-color: rgb(0,255,0);"></td>
-                        <td class="color_button " style="background-color: rgb(255,255,0);"></td>
+                        <td onClick="place_color(this,3);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,3);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,3);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,3);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -136,12 +136,12 @@
                             </table>
                            </td>
                         </tr>
-                        <tr>
+                        <tr data-row="2" class="guess_row">
                         <td class="text_box">2.</td>
-                        <td class="color_button " style="background-color: rgb(255,0,0);"></td>
-                        <td class="color_button " style="background-color: rgb(0,0,0);"></td>
-                        <td class="color_button " style="background-color: rgb(0,255,0);"></td>
-                        <td class="color_button " style="background-color: rgb(255,255,0);"></td>
+                        <td onClick="place_color(this,2);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,2);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,2);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,2);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -155,12 +155,12 @@
                             </table>
                            </td>
                         </tr>
-                        <tr>
+                        <tr data-row="1" class="guess_row">
                         <td class="text_box">1.</td>
-                        <td class="color_button " style="background-color: rgb(255,0,0);"></td>
-                        <td class="color_button " style="background-color: rgb(0,0,0);"></td>
-                        <td class="color_button " style="background-color: rgb(0,255,0);"></td>
-                        <td class="color_button " style="background-color: rgb(255,255,0);"></td>
+                        <td onClick="place_color(this,1);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,1);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,1);" class="color_button not_filled"></td>
+                        <td onClick="place_color(this,1);" class="color_button not_filled"></td>
                         <td class="answer_box">
                            <table class="answer_table">
                             <tbody>
@@ -179,7 +179,7 @@
                 </div>
                 <div id="control_buttons">
                     <button class="button">Reset</button>
-                    <button class="button">Check</button>
+                    <button class="button" onClick="check_row()">Check</button>
                 </div>
             
             
