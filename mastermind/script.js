@@ -67,18 +67,25 @@ function check_row(){
 
 
 function verify_code(){
+    
+    //Klonowanie secret_code
+    var secret_code_copy=new Array(4);
+    for(var i=0;i<secret_code.length;i++)
+        secret_code_copy[i]=secret_code[i];
+    
     var number_of_correct_place=0;
     for (var i=0;i<4;i++)
-        if(secret_code[i]==input_code[i]){
+        if(secret_code_copy[i]==input_code[i]){
             number_of_correct_place++;
-            input_code[i]=0;
+            secret_code_copy[i]=0;
+            input_code[i]=-1;
         }
     var number_of_correct_color=0;
     for(var i=0;i<4;i++){
-        for(var j=0;j<input_code.length;j++){
-            if(secret_code[i]==input_code[j]){
+        for(var j=0;j<4;j++){
+            if(input_code[i]==secret_code_copy[j]){
                 number_of_correct_color++;
-                input_code[j]=0;
+                secret_code_copy[j]=0;
                 break;
             }
         }
