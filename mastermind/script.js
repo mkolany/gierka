@@ -34,16 +34,24 @@ function reset(){
     header.innerHTML="Let's go !";
 }
 
-function reveal(){
+function reveal_top(){
     var solution_buttons=document.getElementsByClassName("solution_button");
         for(var i=0;i<4;i++){
             solution_buttons[i].innerHTML="";
             solution_buttons[i].classList.add("color"+secret_code[i]);
             solution_buttons[i].classList.remove("not_filled");
         }
-    is_solved=true;
-    header.innerHTML="I'm sorry...";
 }
+
+function reveal_action(){
+    reveal_top();
+    if(!is_solved)
+        header.innerHTML="I'm sorry...";
+    else
+        alert("You can see it!");
+    is_solved=true;
+}
+
 /*function get_color_from_number(number){
     var color_string;
     switch(number){
@@ -77,6 +85,10 @@ function reveal(){
 function choose_color(number){
     //console.log(number);
     clipboard_color_number=number;
+    var choice_buttons=document.getElementsByClassName("choice_button");
+    for(var i=0;i<choice_buttons.length;i++)
+        choice_buttons[i].classList.remove("active");
+    choice_buttons[number-1].classList.add("active");
 }
 
 function place_color(cell, row_number){
@@ -137,15 +149,18 @@ function verify_code(){
     for(var i=0;i<number_of_correct_place;i++)
         answer_cells[i].className="answer_cell correct_place";
     for(var i=number_of_correct_place;i<number_of_correct_color+number_of_correct_place;i++)
-        answer_cells[i].classList="answer_cell correct_color"
+        answer_cells[i].classList="answer_cell correct_color";
     for(var i=number_of_correct_color+number_of_correct_place;i<answer_cells.length;i++)
         answer_cells[i].classList="answer_cell incorrect";
     
     if(number_of_correct_place==4){
         is_solved=true;
+        reveal_top();
         header.innerHTML="Congratulations !";
-        reveal();
+        
     }
+    else if(active_row==7)
+        reveal_action();
     
     
     
