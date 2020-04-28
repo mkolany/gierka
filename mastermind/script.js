@@ -65,7 +65,7 @@ function check_row(){
     }
 }
 
-//Funkcja zwraca błędny wynik
+
 function verify_code(){
     var number_of_correct_place=0;
     for (var i=0;i<4;i++)
@@ -83,8 +83,17 @@ function verify_code(){
             }
         }
     }
-    alert(number_of_correct_place);
-    alert(number_of_correct_color);
+    var answer_cells=document.querySelector("tr[data-row='"+active_row+"'] table.answer_table > tbody tr").children;
+    for(var i=0;i<number_of_correct_place;i++)
+        answer_cells[i].className="answer_cell correct_place";
+    for(var i=number_of_correct_place;i<number_of_correct_color+number_of_correct_place;i++)
+        answer_cells[i].classList="answer_cell correct_color"
+    for(var i=number_of_correct_color+number_of_correct_place;i<answer_cells.length;i++)
+        answer_cells[i].classList="answer_cell incorrect";
+    
+    
+    
+    return [number_of_correct_place,number_of_correct_color];
 }
        
        
