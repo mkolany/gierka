@@ -69,7 +69,7 @@ header h1{
     margin: auto;
     padding:0 10px;
 }
-.color_button{
+.color_button , .solution_button{
     height:40px;
     width:40px;
     border-radius: 35%;
@@ -101,13 +101,15 @@ header h1{
     
 }
 .answer_table{
-    border-spacing: 10px;
+    border-spacing:11px;
+    height:40px;
+    width:127px;
     
 }
 
 .answer_cell{
-    width:15px;
-    height:15px;
+    width:16px;
+    height:16px;
     border-radius: 45%;
     
 }

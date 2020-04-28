@@ -10,7 +10,7 @@
     <body onLoad="start();">
         <main>
             <header>
-            <h1>Hello Mastermind !</h1>
+            <h1 id="top_header">Hello Mastermind !</h1>
             </header>
             <div id="board">
                 
@@ -33,10 +33,10 @@
                     <thead>
                         <tr>
                             <th class="text_box"></th>
-                            <th class="color_button not_filled">?</th>
-                            <th class="color_button not_filled">?</th>
-                            <th class="color_button not_filled">?</th>
-                            <th class="color_button not_filled">?</th>
+                            <th class="solution_button not_filled">?</th>
+                            <th class="solution_button not_filled">?</th>
+                            <th class="solution_button not_filled">?</th>
+                            <th class="solution_button not_filled">?</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -127,10 +127,10 @@
                            <table class="answer_table">
                             <tbody>
                             <tr>
-                            <td class="answer_cell correct_place"></td>
-                            <td class="answer_cell correct_place"></td>
-                            <td class="answer_cell correct_color"></td>
-                            <td class="answer_cell incorrect"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
                             </tr>
                             </tbody>
                             </table>
@@ -146,10 +146,10 @@
                            <table class="answer_table">
                             <tbody>
                             <tr>
-                            <td class="answer_cell correct_place"></td>
-                            <td class="answer_cell correct_place"></td>
-                            <td class="answer_cell correct_color"></td>
-                            <td class="answer_cell incorrect"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
                             </tr>
                             </tbody>
                             </table>
@@ -165,10 +165,10 @@
                            <table class="answer_table">
                             <tbody>
                             <tr>
-                            <td class="answer_cell correct_place"></td>
-                            <td class="answer_cell correct_place"></td>
-                            <td class="answer_cell correct_color"></td>
-                            <td class="answer_cell incorrect"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
+                            <td class="answer_cell"></td>
                             </tr>
                             </tbody>
                             </table>
@@ -178,8 +178,10 @@
                     </table>
                 </div>
                 <div id="control_buttons">
-                    <button class="button">Reset</button>
-                    <button class="button" onClick="check_row()">Check</button>
+                    <button class="button" onClick="reset();">Reset</button>
+                    <button class="button" onClick="reveal();">Reveal</button>
+                    <button class="button" onClick="check_row();">Check</button>
+                   
                 </div>
             
             
