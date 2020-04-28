@@ -1,11 +1,40 @@
 function start(){
-    
+    create_random_code();
 }
 var clipboard_color_number;
 var active_row=1;
-var secret_code=[1,2,3,3];
+var secret_code=new Array(4);
 var input_code=new Array(4);
 
+function create_random_code(){
+    for(var i=0;i<4;i++)
+        secret_code[i]=Math.floor(Math.random()*7)+1;
+        console.log(secret_code);
+}
+
+function reset(){
+    create_random_code();
+    var all_button_cells=document.getElementsByClassName("color_button");
+    for(var i=0;i<all_button_cells.length;i++)
+        all_button_cells[i].className="color_button not_filled";
+    var all_answer_cells=document.getElementsByClassName("answer_cell");
+    for(var i=0;i<all_answer_cells.length;i++)
+        all_answer_cells[i].className="answer_cell";
+    var solution_buttons=document.getElementsByClassName("solution_button");
+        for(var i=0;i<solution_buttons.length;i++){
+            solution_buttons[i].innerHTML="?";
+            solution_buttons[i].className="solution_button not_filled";
+        }
+}
+
+function reveal(){
+    var solution_buttons=document.getElementsByClassName("solution_button");
+        for(var i=0;i<4;i++){
+            solution_buttons[i].innerHTML="";
+            solution_buttons[i].classList.add("color"+secret_code[i]);
+            solution_buttons[i].classList.remove("not_filled");
+        }
+}
 /*function get_color_from_number(number){
     var color_string;
     switch(number){
@@ -37,6 +66,7 @@ var input_code=new Array(4);
 
 
 function choose_color(number){
+    //console.log(number);
     clipboard_color_number=number;
 }
 
