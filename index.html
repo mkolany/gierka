@@ -1,662 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Checkers</title>
+<title>Dwuosobowy projekt zespołowy</title>
 <style>
-:root{
-  --shake-anim: none;
-}
-
-body{
-  margin: 0;
+body {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}  
+.container {
+    background-image: url("https://i.imgur.com/GxpWOdx.png");
+    background-color: #bdc3c1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: solid;
+    border-width: 20px;
+    border-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 788px;
+    height: 439px;
+}  
+#SCREEN{
+  width: 435px;
+  height: 290px;
   padding: 0;
-  display:flex;
-  height: 100vh;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  animation: var(--shake-anim);
-  animation-delay: 0.3s;
-}
-
-table{
-  border-collapse: collapse;
-}
-
-td{
-  width: calc(90vw/8);
-  height: calc(90vw/8);
-  border: 2px solid black;
-  padding: 0;
-}
-
-div{
-  width: 90%;
-  height: 90%;
-  margin: 0 auto;
-  border-radius: 50%;
-  background-color: black;
-  visibility: hidden;
-  transition: box-shadow 0.5s;
-  position:relative;
-}
-
-div:hover{
-  cursor: pointer;
-}
-
-.active{
-  box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.75);
-}
-
-.red{
-  visibility: visible;
-  background-color: rgb(179,0,0);	
-}
-
-.black{
-  visibility: visible;
-}
-
-.options{
-  opacity: 0.3;
-}
-
-.disabled{
-  pointer-events: none;
-}
-
-.crowned::before,
-.crowned::after{
-  content: "";
+  border: 1px solid black;
   position: absolute;
-  display: block;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
 }
 
-.crowned::before{
-  background-color: rgba(174,132,26,0.8);
-  box-shadow: 0px 0px 40px 2px rgba(174,132,26,0.75);
-  -webkit-transform: scale(0.87);
-  transform: scale(0.87);
-}
-.crowning::before{
-  animation: 0.3s ease-in crown;
-}
-
-.crowned::after{
-  background-color: inherit;
-  opacity: 0.93;
-  -webkit-transform: scale(0.75);
-  transform: scale(0.75);
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
 }
 
-tr:nth-of-type(odd) td:nth-of-type(even){
-  background-color: grey;
-}
-
-tr:nth-of-type(even) td:nth-of-type(odd){
-  background-color: grey;
-}
-
-tr:nth-of-type(9) td, td:nth-of-type(1){
-  background-color: white !important;
-  border: none;
-  text-align: right;
-  width: fit-content;
-}
-
-tr:nth-of-type(9) td{
-  vertical-align: top;
+.menu h1 {
   text-align: center;
 }
-
-@keyframes crown{
-  from{
-    -webkit-transform: scale(10);
-            transform: scale(10);
-  }
-  to{
-    -webkit-transform: scale(0.87);
-            transform: scale(0.87);
-  }
+.menu ul {
+      list-style: none;
+      padding-left: 0;
+      
 }
 
-@keyframes shake{
-  0%{
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  25%{
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
-  50%{
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  75%{
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-  100%{
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
+.menu ul li {
+ background-color:white;
+ margin: 10px 0;
+ width: 400px;
+ height: 30px;
+ text-align: center;
+
+    /* older webkit */
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-justify-content: center;
+
+    /* older firefox */
+    display: -moz-box;
+    -moz-box-align: center;
+    -moz-box-pack: center;
+
+    /* IE10*/
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+
+    /* newer webkit */
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-box-pack: center;
+
+    /* Standard Form - IE 11+, FF 22+, Chrome 29+, Opera 17+ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-@media(min-width: 410px){
-  body{
-    font-size: 1.5rem;
-  }
-}
-
-@media(min-width: 650px){
-  body{
-    font-size: 2rem;
-  }
-    
-  td{
-    width: 75px;
-    height: 75px;
-  }
-}
-
-@media(min-width: 800px){
-  body{
-    font-size: 2rem;
-  }
-}
-
-@media(min-width: 1000px){
-  body{
-    font-size: 2.5rem;
-  }
-}
-
-@media(min-width: 1700px){
-  body{
-    font-size: 3rem;
-  }
-  
-  td{
-    width: 100px;
-    height: 100px;
-  }
+ul li:hover {
+ background-color:black;
+ color: white;
+ font-weight: bold;
 }
 </style>
 <script>
-  window.console = window.console || function(t) {};
-</script>
-<script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
+function load_checkers() {
+     document.getElementById("SCREEN").innerHTML='<object type="text/html" data="checkers/index.html" style="height:300px"></object>';
+}
+function load_mastermind() {
+     document.getElementById("SCREEN").innerHTML='<object type="text/html" data="mastermind/mastermind.html" style="height:300px"></object>';
+}
 </script>
 </head>
-<body translate="no">
-<table>
-<tr>
-<td>1</td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-</tr>
-<tr>
-<td>2</td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-</tr>
-<tr>
- <td>3</td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-</tr>
-<tr>
-<td>4</td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-</tr>
-<tr>
-<td>6</td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-</tr>
-<tr>
-<td>7</td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-</tr>
-<tr>
-<td>8</td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-<td><div></div></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-<td>7</td>
-<td>8</td>
-</tr>
-</table>
-<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
-<script id="rendered-js">
-let reds = document.querySelectorAll("tr:nth-child(-n+3) div");
-let blacks = document.querySelectorAll("tr:nth-child(n+6) div");
-
-const clicked = e => {
-  e.target.classList.toggle("active");
-
-  let color = e.target.classList.contains("red") ? "red" : "black";
-  let crowned = e.target.classList.contains("crowned") ? true : false;
-
-  //Disable or enable non active pieces
-  if (color === "red") {
-    for (red of reds) {
-      red.classList.toggle("disabled");
-    }
-  } else {
-    for (black of blacks) {
-      black.classList.toggle("disabled");
-    }
-  }
-
-  e.target.classList.remove("disabled");
-
-  let cell = e.path[1].cellIndex;
-  let row = e.path[2].rowIndex;
-
-  let options = findOptions(color, row, cell, crowned);
-
-  //Loop through all options, checking if each one is already displaying or not.
-  //If the option is already being displayed remove it, if not then display it and then call the move function inside of the onclick.
-  options.forEach(function (option) {
-    if (option.position) {
-      if (option.position.classList.contains("options")) {
-        option.position.classList.remove(...option.position.classList);
-        option.position.classList.remove(color);
-      } else if (!option.position.classList.contains(color)) {
-        option.position.classList.add("options");
-        option.position.classList.add(color);
-        if (crowned) {
-          option.position.classList.add("crowned");
-        }
-        option.position.onclick = function callHandler(event) {
-          move(event, e.target, options, color, option.eat);
-        };
-      }
-    }
-  });
-};
-
-const move = (e, prevPos, otherOptions, color, eat) => {
-  let crowned = e.target.classList.contains("crowned") ? true : false;
-  //Display the piece in the new position by removing the options class.
-  e.target.classList.remove("options");
-  //Remove the previous position
-  prevPos.classList.remove(...prevPos.classList);
-  prevPos.removeEventListener("click", clicked);
-  e.target.onclick = null;
-  //Remove all other options
-  otherOptions.forEach(function (otherOption) {
-    if (otherOption.position) {
-      if (otherOption.position.classList.contains("options")) {
-        otherOption.position.classList.remove(
-        ...otherOption.position.classList);
-
-        otherOption.position.onclick = null;
-      }
-    }
-  });
-
-  if (eat.state) {
-    //Remove the piece that was eaten
-    eat.pos.classList.remove(...eat.pos.classList);
-    eat.pos.removeEventListener("click", clicked);
-    let cell = e.path[1].cellIndex;
-    let row = e.path[2].rowIndex;
-    //Check if there's a posibility of another jump by calling the findOptions func again
-    let options = findOptions(color, row, cell, crowned);
-    options.forEach(function (option) {
-      if (option.eat.state && !option.position.classList.contains(color)) {
-        option.position.classList.add("options");
-        option.position.classList.add(color);
-        e.target.classList.add("active");
-        if (crowned) {
-          option.position.classList.add("crowned");
-        }
-        option.position.onclick = function callHandler(event) {
-          move(event, e.target, options, color, option.eat);
-        };
-      } else {
-        changeTurn(color);
-      }
-    });
-  } else {
-    changeTurn(color);
-  }
-
-  if (e.path[2].rowIndex === 0 || e.path[2].rowIndex === 7) {
-    crown(e.target);
-  }
-};
-
-const findOptions = (color, row, cell, crowned) => {
-  let option1 = {
-    position: null,
-    eat: { state: false, pos: null } },
-
-  option2 = {
-    position: null,
-    eat: { state: false, pos: null } },
-
-  option3 = {
-    position: null,
-    eat: { state: false, pos: null } },
-
-  option4 = {
-    position: null,
-    eat: { state: false, pos: null } };
-
-
-  if (color === "red") {
-    //Declare the initial values for the first 2 options
-    option1.position = document.querySelector(
-    `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell}) div`);
-
-
-    option2.position = document.querySelector(
-    `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell + 2}) div`);
-
-
-    if (option1.position) {
-      if (option1.position.classList.contains("black")) {
-        //If the option contains a black piece check the row and column, relevant for a possible jump.
-        option1.position = document.querySelector(
-        `tr:nth-of-type(${row + 3}) td:nth-of-type(${cell - 1}) div`);
-
-        if (option1.position) {
-          //Check for a possible jump.
-          if (option1.position.classList.contains("black")) {
-            option1.position = null;
-          } else {
-            option1.eat.state = true;
-            option1.eat.pos = document.querySelector(
-            `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell}) div`);
-
-          }
-        }
-      }
-    }
-
-    if (option2.position) {
-      if (option2.position.classList.contains("black")) {
-        option2.position = document.querySelector(
-        `tr:nth-of-type(${row + 3}) td:nth-of-type(${cell + 3}) div`);
-
-        if (option2.position) {
-          if (option2.position.classList.contains("black")) {
-            option2.position = null;
-          } else {
-            option2.eat.state = true;
-            option2.eat.pos = document.querySelector(
-            `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell + 2}) div`);
-
-          }
-        }
-      }
-    }
-    //If the piece is crowned find possible options 3 and 4.
-    if (crowned) {
-      option3.position = document.querySelector(
-      `tr:nth-of-type(${row}) td:nth-of-type(${cell}) div`);
-
-
-      option4.position = document.querySelector(
-      `tr:nth-of-type(${row}) td:nth-of-type(${cell + 2}) div`);
-
-
-      if (option3.position) {
-        if (option3.position.classList.contains("black")) {
-          option3.position = document.querySelector(
-          `tr:nth-of-type(${row - 1}) td:nth-of-type(${cell - 1}) div`);
-
-          if (option3.position) {
-            if (option3.position.classList.contains("black")) {
-              option3.position = null;
-            } else {
-              option3.position = document.querySelector(
-              `tr:nth-of-type(${row - 1}) td:nth-of-type(${cell - 1}) div`);
-
-              option3.eat.state = true;
-              option3.eat.pos = document.querySelector(
-              `tr:nth-of-type(${row}) td:nth-of-type(${cell}) div`);
-
-            }
-          }
-        }
-      }
-
-      if (option4.position) {
-        if (option4.position.classList.contains("black")) {
-          option4.position = document.querySelector(
-          `tr:nth-of-type(${row - 1}) td:nth-of-type(${cell + 3}) div`);
-
-          if (option4.position) {
-            if (option4.position.classList.contains("black")) {
-              option4.position = null;
-            } else {
-              option4.eat.state = true;
-              option4.eat.pos = document.querySelector(
-              `tr:nth-of-type(${row}) td:nth-of-type(${cell + 2}) div`);
-
-            }
-          }
-        }
-      }
-    }
-  } else {
-    option1.position = document.querySelector(
-    `tr:nth-of-type(${row}) td:nth-of-type(${cell}) div`);
-
-
-    option2.position = document.querySelector(
-    `tr:nth-of-type(${row}) td:nth-of-type(${cell + 2}) div`);
-
-
-    if (option1.position) {
-      if (option1.position.classList.contains("red")) {
-        option1.position = document.querySelector(
-        `tr:nth-of-type(${row - 1}) td:nth-of-type(${cell - 1}) div`);
-
-        if (option1.position) {
-          if (option1.position.classList.contains("red")) {
-            option1.position = null;
-          } else {
-            option1.eat.state = true;
-            option1.eat.pos = document.querySelector(
-            `tr:nth-of-type(${row}) td:nth-of-type(${cell}) div`);
-
-          }
-        }
-      }
-    }
-
-    if (option2.position) {
-      if (option2.position.classList.contains("red")) {
-        option2.position = document.querySelector(
-        `tr:nth-of-type(${row - 1}) td:nth-of-type(${cell + 3}) div`);
-
-        if (option2.position) {
-          if (option2.position.classList.contains("red")) {
-            option2.position = null;
-          } else {
-            option2.eat.state = true;
-            option2.eat.pos = document.querySelector(
-            `tr:nth-of-type(${row}) td:nth-of-type(${cell + 2}) div`);
-
-          }
-        }
-      }
-    }
-
-    if (crowned) {
-      option3.position = document.querySelector(
-      `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell}) div`);
-
-
-      option4.position = document.querySelector(
-      `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell + 2}) div`);
-
-
-      if (option3.position) {
-        if (option3.position.classList.contains("red")) {
-          option3.position = document.querySelector(
-          `tr:nth-of-type(${row + 3}) td:nth-of-type(${cell - 1}) div`);
-
-          if (option3.position) {
-            if (option3.position.classList.contains("red")) {
-              option3.position = null;
-            } else {
-              option3.eat.state = true;
-              option3.eat.pos = document.querySelector(
-              `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell}) div`);
-
-            }
-          }
-        }
-      }
-
-      if (option4.position) {
-        if (option4.position.classList.contains("red")) {
-          option4.position = document.querySelector(
-          `tr:nth-of-type(${row + 3}) td:nth-of-type(${cell + 3}) div`);
-
-          if (option4.position) {
-            if (option4.position.classList.contains("red")) {
-              option4.position = null;
-            } else {
-              option4.eat.state = true;
-              option4.eat.pos = document.querySelector(
-              `tr:nth-of-type(${row + 2}) td:nth-of-type(${cell + 2}) div`);
-
-            }
-          }
-        }
-      }
-    }
-  }
-
-  return [option1, option2, option3, option4];
-};
-
-const changeTurn = color => {
-  reds = document.querySelectorAll(".red:not(.options)");
-
-  blacks = document.querySelectorAll(".black:not(.options)");
-
-  //Remove or add the disabled class, depending on which color just played.
-  if (color === "red") {
-    for (red of reds) {
-      red.classList.add("disabled");
-      red.addEventListener("click", clicked);
-    }
-
-    for (black of blacks) {
-      black.classList.remove("disabled");
-      black.addEventListener("click", clicked);
-    }
-  } else {
-    for (red of reds) {
-      red.classList.remove("disabled");
-    }
-
-    for (black of blacks) {
-      black.classList.add("disabled");
-    }
-  }
-};
-
-const crown = piece => {
-  piece.classList.add("crowned", "crowning");
-  document.documentElement.style.setProperty("--shake-anim", "0.2s shake");
-  setTimeout(() => {
-    document.documentElement.style.setProperty("--shake-anim", "none");
-    piece.classList.remove("crowning");
-  }, 1000);
-};
-
-for (red of reds) {
-  red.classList.add("red");
-  red.addEventListener("click", clicked);
-}
-
-for (black of blacks) {
-  black.classList.add("black", "disabled");
-  black.addEventListener("click", clicked);
-}
-//# sourceURL=pen.js
-    </script>
+<body>
+<div class="container">
+    <div id="SCREEN">
+      <span class="menu">
+            <h1>SELECT GAME:</h1>
+        <ul>
+        <li href ="checkers/index.html" > 
+          <a onclick="load_checkers()">
+            CHECKERS
+          </a>
+        </li>
+        <li onclick="load_mastermind()">
+          MASTERMIND
+        </li>
+        </ul>
+      </span>
+    </div>
+</div>
 </body>
 </html>
